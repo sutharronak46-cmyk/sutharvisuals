@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SutharVisuals | Engineered by Ronak Suthar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #00f2ff;
+      --accent: #ff0044;
+      --bg-dark: #030303;
+      --glass-bg: rgba(20, 20, 20, 0.4);
+      --glass-border: rgba(255, 255, 255, 0.05);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-dark);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    /* --- HERO SECTION --- */
+    .hero-section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at center, #111 0%, #000 100%);
+      background-attachment: fixed;
+      text-align: center;
+      position: relative;
+      border-bottom: 2px solid var(--accent);
+      padding: 20px;
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: url('images (1).jpg') no-repeat center/cover;
+      opacity: 0.15;
+      z-index: 0;
+    }
+
+    .glass-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-top: 1px solid var(--primary);
+      border-radius: 15px;
+      padding: 50px 30px;
+      width: 100%;
+      max-width: 800px; /* Constrained width */
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 40px rgba(0, 242, 255, 0.1);
+      z-index: 1;
+      transform: translateY(0);
+      animation: float 6s ease-in-out infinite;
+      overflow: hidden; /* Prevents anything from spilling out */
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    /* FIXED: Adjusted font size to fit inside the card on all screens */
+    h1 {
+      font-family: 'Syncopate', sans-serif;
+      font-size: clamp(1.8rem, 6vw, 4rem); 
+      text-transform: uppercase;
+      letter-spacing: -2px;
+      margin-bottom: -10px;
+      line-height: 1.2;
+      word-wrap: break-word;
+    }
+
+    .neon-text {
+      color: var(--primary);
+      text-shadow: 0 0 20px var(--primary), 0 0 40px var(--primary);
+    }
+    
+    .accent-text {
+      color: var(--accent);
+      text-shadow: 0 0 20px var(--accent);
+    }
+
+    .owner-tag {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 5px 15px;
+      font-weight: 900;
+      letter-spacing: 3px;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      margin-top: 20px;
+      box-shadow: 0 0 15px var(--accent);
+    }
+
+    /* --- SOFTWARE SECTION --- */
+    .tools { margin-top: 40px; }
+    .tool-tag {
+      display: inline-block;
+      padding: 10px 20px;
+      border: 1px solid var(--glass-border);
+      font-size: 0.7rem;
+      font-weight: 900;
+      margin: 5px;
+      letter-spacing: 1px;
+      background: rgba(0,0,0,0.5);
+      text-transform: uppercase;
+      transition: 0.3s;
+    }
+    .tool-tag:hover {
+      border-color: var(--primary);
+      background: var(--primary);
+      color: #000;
+      box-shadow: 0 0 20px var(--primary);
+    }
+
+    /* --- ABOUT SECTION --- */
+    .about-section {
+      padding: 100px 10%;
+      background: #050505;
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      flex-wrap: wrap;
+    }
+
+    .about-content {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .about-content h2 {
+      font-family: 'Syncopate', sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      border-left: 5px solid var(--accent);
+      padding-left: 15px;
+    }
+
+    .about-content p {
+      font-size: 1.1rem;
+      color: #a1a1aa;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 20px;
+    }
+
+    .stat-box {
+      background: #0a0a0a;
+      border: 1px solid #222;
+      padding: 20px;
+      text-align: center;
+      transition: 0.3s;
+    }
+    .stat-box:hover {
+      border-color: var(--primary);
+      transform: translateY(-5px);
+    }
+
+    .stat-box h3 {
+      font-size: 2.5rem;
+      color: var(--primary);
+      font-weight: 900;
+      font-family: 'Syncopate', sans-serif;
+    }
+
+    /* --- SERVICE GRID --- */
+    .section-container { padding: 100px 10%; position: relative; }
+
+    .choice-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .service-card {
+      background: #0a0a0a;
+      border: 1px solid #222;
+      padding: 50px 30px;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%; width: 100%; height: 3px;
+      background: var(--primary);
+      transition: 0.4s;
+    }
+
+    .service-card:hover::before { left: 0; }
+
+    .service-card:hover {
+      border-color: var(--glass-border);
+      background: #111;
+      transform: scale(1.05);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8);
+    }
+
+    .service-card h3 {
+      font-family: 'Syncopate', sans-serif;
+      font-size: 1.2rem;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    /* --- DYNAMIC FORM OVERLAY --- */
+    #configurator {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.95);
+      backdrop-filter: blur(15px);
+      z-index: 9999;
+      overflow-y: auto;
+      padding: 50px 5%;
+    }
+
+    .form-box {
+      background: #050505;
+      border: 1px solid var(--primary);
+      padding: 40px;
+      max-width: 600px;
+      margin: 0 auto;
+      border-radius: 10px;
+      box-shadow: 0 0 50px rgba(0, 242, 255, 0.1);
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 18px;
+      margin: 10px 0;
+      background: #0a0a0a;
+      border: 1px solid #333;
+      color: white;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    input:focus, textarea:focus, select:focus { 
+      border-color: var(--primary); 
+      background: #000;
+      box-shadow: inset 0 0 10px rgba(0, 242, 255, 0.1);
+    }
+
+    .submit-btn {
+      background: var(--primary);
+      color: black;
+      width: 100%;
+      padding: 20px;
+      font-weight: 900;
+      font-family: 'Syncopate', sans-serif;
+      border: none;
+      cursor: pointer;
+      margin-top: 15px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      transition: 0.3s;
+    }
+
+    .submit-btn:hover {
+      background: white;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+    }
+
+    /* --- PORTFOLIO --- */
+    .portfolio-bg {
+      background: #080808;
+      border-top: 1px solid #222;
+      border-bottom: 1px solid #222;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+
+    .video-item {
+      background: #000;
+      overflow: hidden;
+      border: 1px solid #222;
+      position: relative;
+      transition: 0.3s;
+    }
+    
+    .video-item:hover {
+      border-color: var(--accent);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(255, 0, 68, 0.2);
+    }
+
+    video { width: 100%; display: block; outline: none; }
+
+    /* --- FOOTER & MISC --- */
+    footer {
+      padding: 100px 10%;
+      text-align: center;
+      background: #000;
+      background-image: linear-gradient(to top, rgba(0,242,255,0.05), transparent);
+    }
+
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #25d366;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+      z-index: 500;
+      transition: 0.3s;
+    }
+    .whatsapp-btn:hover {
+      transform: translateY(-5px);
+      background: #1ebe57;
+    }
+  </style>
+</head>
+<body>
+
+<header class="hero-section">
+  <div class="glass-card">
+    <img src="WhatsApp Image 2026-03-29 at 3.37.02 PM.jpeg" width="120" style="border-radius: 5px; border: 2px solid var(--primary); margin-bottom: 20px; box-shadow: 0 0 20px var(--primary);">
+    <h1>SUTHAR<span class="neon-text">VISUALS</span></h1>
+    <div class="owner-tag">BY RONAK SUTHAR</div>
+    <p style="color: #94a3b8; font-size: 1.1rem; font-weight: 600; letter-spacing: 2px; margin-top: 20px;">ENGINEERING VISUAL ADRENALINE</p>
+    
+    <div class="tools">
+      <div class="tool-tag">Premiere Pro</div>
+      <div class="tool-tag">After Effects</div>
+      <div class="tool-tag">DaVinci Resolve</div>
+    </div>
+  </div>
+</header>
+
+<section class="about-section" id="about">
+  <div class="about-content">
+    <h2>THE <span class="accent-text">MASTERMIND</span></h2>
+    <p>I am <strong>Ronak Suthar</strong>, the driving force behind SutharVisuals. We don't just splice clips together; we engineer high-retention, cinematic masterpieces that dominate algorithms and captivate audiences. With a relentless attention to detail and a fierce understanding of modern pacing, SutharVisuals is your ultimate post-production weapon.</p>
+    <div class="stats-grid">
+      <div class="stat-box">
+        <h3>500+</h3>
+        <p style="margin:0; font-size: 0.8rem; letter-spacing: 1px; color:#666;">PROJECTS KILLED</p>
+      </div>
+      <div class="stat-box">
+        <h3>100%</h3>
+        <p style="margin:0; font-size: 0.8rem; letter-spacing: 1px; color:#666;">CLIENT SUCCESS</p>
+      </div>
+      <div class="stat-box">
+        <h3>24/7</h3>
+        <p style="margin:0; font-size: 0.8rem; letter-spacing: 1px; color:#666;">HUSTLE</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-container">
+  <h2 style="text-align: center; font-family: 'Syncopate', sans-serif; font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 20px;">DEPLOY A <span class="neon-text">PROJECT</span></h2>
+  <div class="choice-grid">
+    <div class="service-card" onclick="initiateForm('YouTube Video')">
+      <h3>YouTube</h3>
+      <p style="color: #666; font-size: 0.9rem;">Vlogs, Podcasts, Travel & high-retention long-form.</p>
+    </div>
+    <div class="service-card" onclick="initiateForm('Shorts & Reels')">
+      <h3>Shorts / Reels</h3>
+      <p style="color: #666; font-size: 0.9rem;">Aggressive hooks & viral micro-content.</p>
+    </div>
+    <div class="service-card" onclick="initiateForm('Wedding Edit')">
+      <h3>Wedding</h3>
+      <p style="color: #666; font-size: 0.9rem;">Cinematic, emotional storytelling.</p>
+    </div>
+    <div class="service-card" onclick="initiateForm('Ad/Promotion')">
+      <h3>Commercials</h3>
+      <p style="color: #666; font-size: 0.9rem;">High-converting brand and product showcases.</p>
+    </div>
+  </div>
+</section>
+
+<div id="configurator">
+  <div class="form-box">
+    <h2 id="form-title" style="color: var(--primary); font-family: 'Syncopate', sans-serif;">INITIATE BUILD</h2>
+    <p id="form-desc" style="color: #94a3b8; margin-top: 5px;">Input your project parameters.</p>
+    
+    <div id="sub-category-field">
+      <label style="display: block; margin-top: 20px; font-weight: 700; color: var(--accent); text-transform: uppercase;">Category Specs:</label>
+      <select id="sub-selection"></select>
+    </div>
+
+    <div id="custom-other" style="display: none;">
+      <label style="display: block; margin-top: 20px; font-weight: 700; color: var(--accent); text-transform: uppercase;">Custom Directive:</label>
+      <input type="text" id="custom-request" placeholder="Ex: Gaming, Music Video, Documentary">
+    </div>
+
+    <input type="text" id="name" placeholder="CLIENT DESIGNATION (Full Name)">
+    <input type="email" id="email" placeholder="SECURE EMAIL (Your Email Address)">
+    <input type="text" id="phone" placeholder="COMMS LINK (WhatsApp Number)">
+    <textarea id="details" rows="4" placeholder="Briefly describe your target objective and vision..."></textarea>
+    
+    <button class="submit-btn" onclick="sendInquiry()">TRANSMIT TO SUTHARVISUALS</button>
+    <p onclick="document.getElementById('configurator').style.display='none'" style="text-align: center; margin-top: 20px; cursor: pointer; color: #666; font-weight: bold; text-transform: uppercase;">[ ABORT ]</p>
+  </div>
+</div>
+
+<section class="section-container portfolio-bg">
+  <h2 style="text-align: center; margin-bottom: 50px; font-family: 'Syncopate', sans-serif; font-size: clamp(2rem, 5vw, 3rem);">THE <span class="accent-text">ARCHIVE</span></h2>
+  <div class="video-grid">
+    <div class="video-item"><video controls><source src="WhatsApp Video 2026-03-29 at 3.37.07 PM.mp4"></video></div>
+    <div class="video-item"><video controls><source src="WhatsApp Video 2026-03-29 at 3.37.01 PM (1).mp4"></video></div>
+    <div class="video-item"><video controls><source src="WhatsApp Video 2026-03-29 at 3.37.01 PM.mp4"></video></div>
+    <div class="video-item"><video controls><source src="WhatsApp Video 2026-03-29 at 3.36.54 PM - Copy.mp4"></video></div>
+    <div class="video-item"><video controls><source src="WhatsApp Video 2026-03-29 at 3.36.44 PM.mp4"></video></div>
+    <div class="video-item"><video controls><source src="WhatsApp Video 2026-03-29 at 3.36.26 PM.mp4"></video></div>
+  </div>
+</section>
+
+<footer>
+  <h2 style="font-family: 'Syncopate', sans-serif; font-size: clamp(1.8rem, 5vw, 4rem);">READY TO DOMINATE?</h2>
+  <p style="color: var(--primary); font-weight: bold; letter-spacing: 2px; margin-top: 10px;">CONTACT SUTHARVISUALS</p>
+  <div style="margin-top: 30px; color: #aaa; line-height: 2;">
+    <p>COMMS: <strong style="color: white;">8302490448</strong></p>
+    <p>SECURE LINE: <strong style="color: white;">sutharronak46@gmail.com</strong></p>
+  </div>
+</footer>
+
+<a href="https://wa.me/918302490448" class="whatsapp-btn">INITIATE CHAT</a>
+
+<script>
+  let mainSelection = "";
+  const subMenu = {
+    "YouTube Video": ["Vlog", "Podcast", "Shop", "Fast", "Travel", "Funny", "Other"],
+    "Shorts & Reels": ["Personal", "Shop Edit", "Travel Edit", "Film", "Other"],
+    "Wedding Edit": ["Full Wedding", "Short Edit", "Haldi Edit", "Mehendi Edit", "Function", "Other"],
+    "Ad/Promotion": ["Shop", "Product", "Brand", "Other"],
+    "Other": []
+  };
+
+  function initiateForm(type) {
+    mainSelection = type;
+    document.getElementById('configurator').style.display = 'block';
+    document.getElementById('form-title').innerText = type + " PROTOCOL";
+    
+    const dropdown = document.getElementById('sub-selection');
+    const subContainer = document.getElementById('sub-category-field');
+    const customField = document.getElementById('custom-other');
+    
+    dropdown.innerHTML = "";
+    
+    if(type === "Other") {
+      subContainer.style.display = "none";
+      customField.style.display = "block";
+    } else {
+      subContainer.style.display = "block";
+      customField.style.display = "none";
+      subMenu[type].forEach(item => {
+        let opt = document.createElement('option');
+        opt.value = item;
+        opt.innerHTML = item;
+        dropdown.appendChild(opt);
+      });
+    }
+  }
+
+  function sendInquiry() {
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value; // Grabbing the new email field
+    const phone = document.getElementById('phone').value;
+    const subType = mainSelection === "Other" ? document.getElementById('custom-request').value : document.getElementById('sub-selection').value;
+    const details = document.getElementById('details').value;
+
+    if(!name || !email || !phone || (!subType && mainSelection !== "Other")) {
+      alert("System Error: Please input your designation, email, comms link, and project specs!");
+      return;
+    }
+
+    // Using encodeURIComponent makes sure all text is formatted safely for an email draft
+    const subject = encodeURIComponent(`SutharVisuals Build Request: ${mainSelection} - ${subType}`);
+    const body = encodeURIComponent(`CLIENT DESIGNATION: ${name}\nCLIENT EMAIL: ${email}\nCOMMS LINK: ${phone}\n\nDEPLOYMENT TYPE: ${mainSelection}\nSPECIFICS: ${subType}\n\nTARGET OBJECTIVES:\n${details}`);
+    
+    window.location.href = `mailto:sutharronak46@gmail.com?subject=${subject}&body=${body}`;
+    
+    document.getElementById('configurator').style.display='none';
+    alert("Drafting email. Please press 'Send' in your mail app!");
+  }
+</script>
+
+</body>
+</html>
